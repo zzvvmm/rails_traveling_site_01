@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require about_custom
+//= require custom
+//= require jquery-3.2.1.min
+//= require OwlCarousel2-2.2.1/owl.carousel
