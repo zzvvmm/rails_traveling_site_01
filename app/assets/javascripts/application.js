@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require jquery3
 //= require jquery_ujs
 //= require popper
@@ -19,6 +20,7 @@
 //= require_tree ./channels
 //= require chatrooms
 //= require about_custom
+//= require cable
 //= require custom
 //= require OwlCarousel2-2.2.1/owl.carousel
 //= require_tree .

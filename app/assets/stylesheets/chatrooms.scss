@@ -1,0 +1,30 @@
+.chatroom-form {
+  margin: 5%;
+  text-align: center;
+}
+
+#create-chatroom {
+  margin-top: 5%;
+}
+
+#chatroom-index {
+  list-style: none;
+  font-size: 22px;
+  padding-left: 0;
+}
+
+#chatroom-index > li {
+  margin-left: 0;
+}
+
+#chatrooms {
+  text-align: center;
+}
+
+#chatroom-title {
+  text-align: center;
+}
+
+#hidden {
+  display: none;
+}

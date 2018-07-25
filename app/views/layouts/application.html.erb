@@ -15,7 +15,10 @@
     </div>
     <%= render "layouts/header" %>
     <%= yield %>
-    <%= render "layouts/chat" %>
+    <% if logged_in? %>
+      <%= render "layouts/chat" %>
+    <% end %>
     <%= render "layouts/footer" %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
