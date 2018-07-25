@@ -142,6 +142,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (3.3.5)
     rubocop (0.54.0)
       parallel (~> 1.10)
       parser (>= 2.5)
@@ -204,12 +205,14 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   figaro
   font-awesome-rails
+  i18n
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.11)
   rails (~> 5.2.0)
+  redis (~> 3.0)
   rubocop (~> 0.54.0)
   sass-rails (~> 5.0)
   spring
@@ -223,4 +226,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
