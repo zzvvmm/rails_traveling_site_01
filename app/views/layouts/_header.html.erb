@@ -9,7 +9,8 @@
               <%= link_to "login", "#" %>
             </div>
             <div class="user_box_register user_box_link">
-              <%= link_to "register", "#" %>
+              <%= link_to "register", signup_path, remote: true, data:
+                {target: "#createuser", toggle: "modal"} %>
             </div>
           </div>
         </div>
