@@ -10,8 +10,8 @@
 <div class="popup-box chat-popup" id="qnimate">
   <div class="popup-head">
     <div class="popup-head-left pull-left">
-      <%= image_tag image_url("http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg", alt: "iamgurdeeposahan") %>
-      Nguyen Dinh Duc
+      <%= image_tag image_url("http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg"), alt: "iamgurdeeposahan" %>
+      Group 3 <!-- Group chưa tạo. Nên lấy tạm 1 group id để tét chát. -->
     </div>
     <div class="popup-head-right pull-right">
       <div class="btn-group">
@@ -19,51 +19,20 @@
       <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-off"></i></button>
     </div>
   </div>
-  <div class="popup-messages">
+  <% @chatroom = Chatroom.find_by id: 3 %><!-- Group chưa tạo. Nên lấy tạm 1 group id để tét chát. -->
+  <div class="popup-messages" id="scroll">
     <div class="direct-chat-messages">
-      <div class="chat-box-single-line">
-        <abbr class="timestamp">25/07/2018</abbr>
-      </div>
-      <div class="direct-chat-msg doted-border">
-        <div class="direct-chat-info clearfix">
-          <span class="direct-chat-name pull-left">Nguyen Thi Duc</span>
+      <% messages = @chatroom.messages.last(5) %>
+      <% if messages.any? %>
+        <div class="card-body" id="messages">
+          <%= render partial: "messages/message", collection: messages%>
         </div>
-        <%= image_tag image_url("http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg", alt: "message user image", class: "direct-chat-img") %>
-        <div class="direct-chat-text">
-          Alo where are you now ?
-        </div>
-        <div class="direct-chat-info clearfix">
-          <span class="direct-chat-timestamp pull-right">3.36 PM</span>
-        </div>
-        <div class="direct-chat-info clearfix">
-          <span class="direct-chat-img-reply-small pull-left">
-          </span>
-          <span class="direct-chat-reply-name">Singh</span>
-        </div>
-      </div>
+      <%else%>
+        <div class="card-body hidden" id="messages"></div>
+      <%end%>
     </div>
-
   </div>
   <div class="popup-messages-footer">
-    <textarea id="status_message" placeholder= <%= t "type_a_message" %>
-      rows="10" cols="40" name="message"></textarea>
-    <div class="btn-footer">
-      <button class="bg_none"><i class="glyphicon glyphicon-film"></i> </button>
-      <button class="bg_none"><i class="glyphicon glyphicon-camera"></i> </button>
-      <button class="bg_none"><i class="glyphicon glyphicon-paperclip"></i> </button>
-      <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
-    </div>
+    <%= render partial: "messages/message_form", locals: {message: @message, chatroom: @chatroom}%>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(function(){
-    $("#addClass").click(function () {
-      $('#qnimate').addClass('popup-box-on');
-    });
-
-    $("#removeClass").click(function () {
-      $('#qnimate').removeClass('popup-box-on');
-    });
-  })
-</script>
