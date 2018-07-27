@@ -20,5 +20,4 @@
 //= require chatrooms
 //= require about_custom
 //= require custom
-//= require OwlCarousel2-2.2.1/owl.carousel
 //= require_tree .

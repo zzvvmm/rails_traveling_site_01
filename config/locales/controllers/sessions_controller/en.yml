@@ -1,6 +1,0 @@
-en:
-  error:
-    login: "Login Fail"
-    find_user: "Can not find this user"
-  success:
-    login: "Login Success"

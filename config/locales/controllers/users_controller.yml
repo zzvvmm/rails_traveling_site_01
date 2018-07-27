@@ -1,0 +1,7 @@
+en:
+  sucess_create: "Create User Success"
+  create_fail: "Create User Fail"
+
+vi:
+  sucess_create: "Tạo người dùng thành công"
+  create_fail: "Tạo người dùng thất bại"

@@ -1,0 +1,13 @@
+en:
+  email: "Email"
+  password: "Password"
+  login: "Login"
+  new_user: "New User ?  "
+  signup: "Sign Up"
+
+vi:
+  email: "Thư điện tử"
+  password: "Mật khẩu"
+  login: "Đăng nhập"
+  new_user: "Người dùng mới ?  "
+  signup: "Đăng kí"
