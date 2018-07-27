@@ -1,0 +1,17 @@
+en:
+  base_title: "Travelix"
+  login: "Login"
+  register: "Register"
+  home: "Home"
+  about: "About Us"
+  reviews: "Reviews"
+  news: "News"
+
+vi:
+  base_title: "Travelix"
+  login: "Đăng nhập"
+  register: "đăng ký"
+  home: "trang chủ"
+  about: "về chúng tôi"
+  blog: "blog"
+  news: "tin tức"

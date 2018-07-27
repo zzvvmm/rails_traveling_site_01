@@ -1,3 +1,7 @@
 en:
   contains: "The form contains "
   error: "error"
+
+vi:
+  contains: "Form có "
+  error: "lỗi"

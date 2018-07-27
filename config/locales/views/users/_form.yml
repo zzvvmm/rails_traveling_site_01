@@ -1,0 +1,11 @@
+en:
+  name: "Name"
+  password: "Password"
+  email: "Email"
+  confirm: "Confirmation"
+
+vi:
+  name: "Tên"
+  password: "Mật khẩu"
+  email: "Thư điện tử"
+  confirm: "Xác nhận mật khẩu"

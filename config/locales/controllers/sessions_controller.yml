@@ -1,0 +1,13 @@
+en:
+  error:
+    login: "Login Fail"
+    find_user: "Can not find this user"
+  success:
+    login: "Login Success"
+
+vi:
+  error:
+    login: "Đăng nhập thất bại"
+    find_user: "Không thể tìm thấy người dùng"
+  success:
+    login: "Đăng nhập thành công"
