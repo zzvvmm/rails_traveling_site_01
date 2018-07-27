@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :users, only: [:new, :create]
+    resources :reviews
     get "/about", to: "static_pages#about"
     resources :chatrooms, param: :slug
     resources :messages

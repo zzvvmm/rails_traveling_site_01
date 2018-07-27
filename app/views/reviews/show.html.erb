@@ -1,0 +1,120 @@
+<% provide :title, t("reviews") %>
+
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog_post_container">
+          <div class="blog_post">
+            <div class="blog_post_title">
+              <%= @review.title %>
+            </div>
+
+            <div class="blog_post_image">
+              <%= image_tag "blog_1.jpg" %>
+              <div class="blog_post_date d-flex flex-column align-items-center
+                justify-content-center">
+                <div class="blog_post_day">
+                  <%= @review.created_at.strftime("%e") %>
+                </div>
+                <div class="blog_post_month">
+                  <%= @review.created_at.strftime("%b %Y") %>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog_post_text">
+              <p><%= @review.content %></p>
+            </div>
+          </div>
+
+          <div class="blog-comment">
+            <h2><%= t "comment" %></h2>
+
+            <div class="pb-cmnt-container">
+              <textarea placeholder="Write comment"
+                class="pb-cmnt-textarea"></textarea>
+              <form class="form-inline">
+                <div class="btn-group">
+                  <button class="btn" type="button">
+                    <span class="fa fa-picture-o fa-lg"></span></button>
+                </div>
+                <button class="btn btn-primary pull-right" type="button">
+                  <%= t "comment" %></button>
+              </form>
+            </div>
+
+            <hr/>
+            <ul class="comments">
+              <li class="clearfix">
+                <img src="https://bootdey.com/img/Content/user_2.jpg"
+                  class="avatar" alt="">
+                <div class="post-comments">
+                  <p class="meta">Dec 19, 2014
+                    <a href="#">JohnDoe</a>
+                    <i class="pull-right">
+                      <a href="#">
+                        <small>Reply</small>
+                      </a>
+                    </i>
+                  </p>
+                  <p>
+                    This is a comment
+                  </p>
+                </div>
+
+                <ul class="comments">
+                  <li class="clearfix">
+                    <img src="https://bootdey.com/img/Content/user_3.jpg"
+                      class="avatar" alt="">
+                    <div class="post-comments">
+                      <p class="meta">Dec 20, 2014
+                        <a href="#">JohnDoe</a>
+                        <i class="pull-right">
+                          <a href="#">
+                            <small>Reply</small>
+                          </a>
+                        </i>
+                      </p>
+                      <p>
+                        This is a sub comment
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4 sidebar_col">
+        <div class="sidebar_archives">
+          <div class="sidebar_title"><%= t "about_me" %></div>
+          <%= image_tag "test_1.jpg", class: "author-img" %>
+          <p>Hi! My Name is
+            <strong><%= @review.user.name %></strong>
+          </p>
+          <p>I had
+            <%= pluralize @review.user.reviews.count, "review" %></p>
+        </div>
+
+        <div class="sidebar_categories">
+          <div class="sidebar_title"><%= t "tags" %></div>
+          <div class="sidebar_tags">
+            <ul>
+              <% if @review.hastags %>
+                <%= @review.hastags.each do |x| %>
+                <span>
+                  <i class="fa fa-tag"></i>
+                  <%= link_to x.title, "#" %></span>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

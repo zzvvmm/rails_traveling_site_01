@@ -1,0 +1,47 @@
+<div id="review-<%= review.id %>">
+  <div class="blog_post">
+    <div class="blog_post_title">
+      <%= link_to review.title, review %>
+    </div>
+
+    <div class="blog_post_image">
+      <%= image_tag("blog_1.jpg") %>
+      <div class="blog_post_date d-flex flex-column align-items-center
+      justify-content-center">
+        <div class="blog_post_day">
+          <%= review.created_at.strftime("%e") %>
+        </div>
+        <div class="blog_post_month">
+          <%= review.created_at.strftime("%b %Y")  %>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog_post_meta">
+      <ul>
+        <li class="blog_post_meta_item">
+          <i class="fa fa-user-o"></i>
+          <%= t "by" %>
+          <%= link_to review.user.name, "#" %>
+        </li>
+        <li class="blog_post_meta_item">
+          <i class="fa fa-comment-o"></i>
+          <%= pluralize(review.comments.count, "comment") %>
+        </li>
+        <li class="blog_post_meta_item">
+          <% if logged_in? && current_user == review.user %>
+            <%= link_to t("delete"), review, method: :delete,
+              data: {confirm: t("users.user.content1")} %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="blog_post_text">
+      <p><%= review.content %></p>
+    </div>
+    <div class="blog_post_link">
+      <%= link_to t("read more"), review %>
+    </div>
+  </div>
+</div>

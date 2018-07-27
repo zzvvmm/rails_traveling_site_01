@@ -5,3 +5,9 @@ user:
     maximum: 160
   password:
     minimum: 6
+gravatar_size: 80
+paginate:
+  per: 10
+password_reset_expired_time: 2
+picture:
+  resize: 400

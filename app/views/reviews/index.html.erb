@@ -1,0 +1,62 @@
+<% provide :title, t("reviews") %>
+
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog_post_container">
+          <%= render @reviews %>
+        </div>
+        <%= paginate @reviews, theme: "twitter-bootstrap-4" %>
+      </div>
+
+      <div class="col-lg-4 sidebar_col">
+        <% if logged_in? %>
+          <div class="sidebar_archives">
+            <div class="sidebar_title"><%= t "user_profile" %></div>
+          </div>
+        <% end %>
+
+        <div class="sidebar_categories">
+          <div class="sidebar_title"><%= t "categories" %></div>
+          <div class="sidebar_list">
+            <ul>
+              <li><i class="fa fa-check"></i> <%= link_to "homesta", "#" %>
+              </li>
+              <li><i class="fa fa-check"></i> <%= link_to "resort", "#" %>
+              </li>
+              <li><i class="fa fa-check"></i> <%= link_to "vietnam", "#" %>
+              </li>
+              <li><i class="fa fa-check"></i> <%= link_to "english", "#" %>
+              </li>
+              <li><i class="fa fa-check"></i> <%= link_to "tour", "#" %>
+              </li>
+              <li><i class="fa fa-check"></i> <%= link_to "travel", "#" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar_categories">
+          <div class="sidebar_title"><%= t "tags" %></div>
+          <div class="sidebar_tags">
+            <ul>
+              <span><i class="fa fa-tag"></i> <%= link_to "homesta", "#" %>
+              </span>
+              <span><i class="fa fa-tag"></i> <%= link_to "resort", "#" %>
+              </span>
+              <span><i class="fa fa-tag"></i> <%= link_to "vietnam", "#" %>
+              </span>
+              <span><i class="fa fa-tag"></i> <%= link_to "english", "#" %>
+              </span>
+              <span><i class="fa fa-tag"></i> <%= link_to "tour", "#" %>
+              </span>
+              <span><i class="fa fa-tag"></i> <%= link_to "travel", "#" %>
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

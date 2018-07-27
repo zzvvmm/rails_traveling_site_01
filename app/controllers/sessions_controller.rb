@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
   private
   def find_user
     @user = User.find_by email: params[:session][:email].downcase
+
     return if @user
     flash.now[:danger] = t "error.find_user"
     render :new

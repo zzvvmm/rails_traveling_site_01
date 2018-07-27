@@ -13,7 +13,6 @@ class UsersController < ApplicationController
       flash[:success] = t "sucess_create"
       redirect_to root_url
     else
-      flash[:danger] = t "create_fail"
       render :new
     end
   end
