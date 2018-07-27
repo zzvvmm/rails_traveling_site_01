@@ -5,13 +5,20 @@
         <div class="col d-flex flex-row">
           <div class="phone">2556-808-8613</div>
           <div class="user_box ml-auto">
-            <div class="user_box_login user_box_link">
-              <%= link_to "login", "#" %>
-            </div>
-            <div class="user_box_register user_box_link">
-              <%= link_to "register", signup_path, remote: true, data:
-                {target: "#createuser", toggle: "modal"} %>
-            </div>
+            <% if logged_in? %>
+              <div class="user_box_login user_box_link">
+                <%= link_to "logout", logout_path, method: :delete  %>
+              </div>
+            <% else %>
+              <div class="user_box_login user_box_link">
+                <%= link_to "login", login_path, remote: true, data:
+                  {target: "#login", toggle: "modal"} %>
+              </div>
+              <div class="user_box_register user_box_link">
+                <%= link_to "register", signup_path, remote: true, data:
+                  {target: "#createuser", toggle: "modal"} %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
