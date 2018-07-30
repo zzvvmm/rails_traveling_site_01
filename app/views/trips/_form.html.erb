@@ -1,0 +1,24 @@
+<%= form_for @trip do |f|%>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.label :name, t("trip_name") %>
+  <%= f.text_field :name, class: "form-control"  %>
+
+  <%= f.label :begin, t("begin") %>
+  <%= f.text_field :begin, class: "form-control" %>
+  <br>
+  <%= f.label :destination, t("choose_destination") %>
+  <% if @places %>
+    <%= f.collection_select(:destination_id, @places,
+      :id, :name, prompt: true) %>
+  <% end %>
+  <br>
+  <%= f.fields_for :place, Place.new do |ff| %>
+    <%= ff.label :name, t("new_destination") %>
+    <%= ff.text_field :name, class: "form-control" %>
+  <% end %>
+  <br>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
