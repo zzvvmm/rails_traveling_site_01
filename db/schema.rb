@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_07_25_074949) do
 
   create_table "trips", force: :cascade do |t|
     t.string "name"
-    t.integer "begin_id"
+    t.string "begin"
     t.integer "destination_id"
     t.integer "user_id"
     t.text "plant"

@@ -5,3 +5,6 @@ user:
     maximum: 160
   password:
     minimum: 6
+trip:
+  name:
+    maximum: 50

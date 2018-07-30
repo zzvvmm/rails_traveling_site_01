@@ -1,4 +1,5 @@
-<div class="row">
+<% provide :title, "signup" %>
+<div class="row" id="form-row">
   <div class="col-md-6 offset-md-3">
     <%= form_for :session, url: login_path do |f| %>
 
@@ -7,10 +8,10 @@
 
       <%= f.label :password, t("password") %>
       <%= f.password_field :password, class: "form-control" %>
-
+      <br>
       <%= f.submit t("login"), class: "btn btn-primary" %>
     <% end %>
-    <p></p>
+    <br>
     <%= t "new_user" %><%= link_to t("signup"), signup_path %>
   </div>
 </div>

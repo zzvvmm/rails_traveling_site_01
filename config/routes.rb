@@ -7,9 +7,11 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :users, only: [:new, :create]
+    resources :trips, only: [:new, :create]
     get "/about", to: "static_pages#about"
     resources :chatrooms, param: :slug
     resources :messages
+    resources :reviews
     mount ActionCable.server => "/cable"
   end
 end
