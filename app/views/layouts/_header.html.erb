@@ -6,16 +6,21 @@
           <div class="phone">2556-808-8613</div>
           <div class="user_box ml-auto">
             <% if logged_in? %>
-              <div class="user_box_login user_box_link">
-                <%= link_to "logout", logout_path, method: :delete  %>
-              </div>
+              <ul>
+                <li class="user_box_login user_box_link">
+                  <%= link_to t("create_review"), new_review_path %>
+                </li>
+                <li class="user_box_login user_box_link">
+                  <%= link_to t("logout"), logout_path, method: :delete %>
+                <li>
+              </ul>
             <% else %>
               <div class="user_box_login user_box_link">
-                <%= link_to "login", login_path, remote: true, data:
+                <%= link_to t("login"), login_path, remote: true, data:
                   {target: "#login", toggle: "modal"} %>
               </div>
               <div class="user_box_register user_box_link">
-                <%= link_to "register", signup_path, remote: true, data:
+                <%= link_to t("register"), signup_path, remote: true, data:
                   {target: "#createuser", toggle: "modal"} %>
               </div>
             <% end %>
@@ -32,8 +37,8 @@
           justify-content-start">
           <div class="logo_container">
             <div class="logo">
-                <%= link_to image_tag("logo.png"), class: "logo_img" %>
-                <div class="logo_title"><%= t "base_title" %></div>
+              <%= link_to image_tag("logo.png"), class: "logo_img" %>
+              <div class="logo_title"><%= t "base_title" %></div>
             </div>
           </div>
           <div class="main_nav_container ml-auto">
@@ -46,9 +51,6 @@
               </li>
               <li class="main_nav_item">
                 <%= link_to t("reviews"), reviews_url %>
-              </li>
-              <li class="main_nav_item">
-                <%= link_to t("news"), "#" %>
               </li>
             </ul>
           </div>
@@ -63,8 +65,8 @@
 </header>
 
 <div class="home">
-  <div class="home_background parallax-window" data-parallax="scroll"
-    style="background-image:url(<%= asset_url "blog_background.jpg" %>)">
+  <div class="home_background parallax-window" data-parallax="scroll">
+    <%= asset_url "blog_background.jpg" %>
   </div>
   <div class="home_content">
     <div class="home_title"><%= yield :title %></div>
