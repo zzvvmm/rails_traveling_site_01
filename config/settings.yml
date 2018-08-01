@@ -8,3 +8,5 @@ user:
 trip:
   name:
     maximum: 50
+paginate:
+  per: 9

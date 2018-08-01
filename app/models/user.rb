@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PgSearch
+
   before_save :downcase_email
 
   has_many :chatrooms, through: :messages
@@ -7,6 +9,12 @@ class User < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :trips, through: :participations
+  has_many :create_trips, class_name: Trip.name, foreign_key: :user_id
+
+  pg_search_scope :search, against: [:name, :email],
+    using: {tsearch: {any_word: true}}
+
+  scope :per_page, ->{per Settings.paginate.per}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -20,6 +28,10 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.password.minimum}, allow_nil: true
 
   has_secure_password
+
+  def is_user? user
+    self == user
+  end
 
   private
   def downcase_email
