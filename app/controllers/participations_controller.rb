@@ -1,23 +1,31 @@
 class ParticipationsController < ApplicationController
-  before_action :logged_in_user, :find_user, :find_trip,
-    :check_user, only: :create
+  before_action :logged_in_user
+  before_action :find_user, :find_trip, :check_user,
+    only: :create
 
   def create
-    @participations = @trip.participations.new user: @user,
-      accepted: "join_in"
-    if @participations.save
+    @participation = @trip.participations.new user: @user,
+      accepted: params[:accepted]
+    if @participation.save
       flash[:success] = t "success.add_member"
     else
       flash[:danger] = t "danger.add_member"
     end
-    redirect_to trip_searchs_path @trip
+    redirect_to request.referrer
   end
 
   private
 
-  def find_user
-    @user = User.find_by id: params[:user_id]
+  def check_accepted?
+    params[:accepted] == "join_in"
+  end
 
+  def find_user
+    @user = if check_accepted?
+              User.find_by id: params[:user_id]
+            else
+              current_user
+            end
     return if @user
     flash[:danger] = t "danger.find_user"
     redirect_to root_url
@@ -32,8 +40,13 @@ class ParticipationsController < ApplicationController
   end
 
   def check_user
-    return if @trip.owner.is_user? current_user
+    if check_accepted?
 
+      return if current_user.is_user? @trip.owner
+    else
+
+      return unless @trip.members.include? @user
+    end
     flash[:danger] = t "danger.check_user"
     redirect_to root_url
   end

@@ -7,7 +7,9 @@
     <% if !@trip.members.include?(user) &&
       @trip.owner.is_user?(current_user) %>
       <%= button_to t("add_member"),
-        trip_participations_path(user_id: user.id, trip_id: @trip.id),
+        trip_participations_path(user_id: user.id,
+        trip_id: @trip.id,
+        accepted: :join_in),
         class: "btn btn-primary" %>
     <% end %>
 </div>

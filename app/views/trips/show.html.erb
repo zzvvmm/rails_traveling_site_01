@@ -10,9 +10,8 @@
         <p class="text-center"><%= @user.name %></p>
         <li class="active">
           <%= link_to t("trip_info"), "#homeSubmenu",
-            data: {toggle: "collapse"},
-            aria: {expanded: "false"},
-            class: "dropdown-toggle" %>
+          data: {toggle: "collapse"}, aria: {expanded: "false"},
+          class: "dropdown-toggle" %>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
               <%= link_to t("plant"), "#" %>
