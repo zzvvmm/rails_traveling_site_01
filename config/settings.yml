@@ -10,3 +10,5 @@ trip:
     maximum: 50
 paginate:
   per: 9
+hastags:
+  top: 10

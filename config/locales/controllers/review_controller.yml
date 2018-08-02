@@ -1,0 +1,11 @@
+en:
+  create_review_success: "Create review success"
+  update_review_success: "Update review success"
+  delete_review_success: "Delete review success"
+  cant_find_review: "Cannot find review"
+
+vi:
+  create_review_success: "Tạo bài đánh giá thành công"
+  update_review_success: "Thay đổi bài đánh giá thành công"
+  delete_review_success: "Xóa bài đánh giá thành công"
+  cant_find_review: "Không tìm thấy bài đánh giá"

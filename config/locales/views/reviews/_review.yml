@@ -1,0 +1,18 @@
+en:
+  review: "review"
+  reviews: "Reviews"
+  comment: "Comment"
+  delete: "Delete"
+  confirm_delete: "Are you sure?"
+  read_more: "Read more"
+  update_button: "Update"
+  create_button: "Create"
+vi:
+  review: "đánh giá"
+  reviews: "Đánh giá"
+  comment: "Bình luận"
+  delete: "Xóa"
+  confirm_delete: "Bạn chắc chứ?"
+  read_more: "Đọc thêm"
+  update_button: "Thay đổi"
+  create_button: "Tạo"

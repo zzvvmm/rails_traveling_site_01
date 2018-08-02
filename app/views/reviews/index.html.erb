@@ -14,12 +14,15 @@
         <div class="sidebar_categories">
           <div class="sidebar_title"><%= t "tags" %></div>
           <div class="sidebar_tags">
-            <ul>
-              <span><i class="fa fa-tag"></i> <%= link_to "homesta", "#" %>
+            <% @top_hastags.each do |hastag| %>
+              <span>
+                <i class="fa fa-tag"></i>
+                <b>
+                  <%= link_to hastag.title,
+                    hastag_path(title: hastag.title) %>
+                </b>
               </span>
-              <span><i class="fa fa-tag"></i> <%= link_to "resort", "#" %>
-              </span>
-            </ul>
+            <% end %>
           </div>
         </div>
       </div>

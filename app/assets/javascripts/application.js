@@ -20,6 +20,7 @@
 //= require_tree ./channels
 //= require chatrooms
 //= require about_custom
+//= require blog_custom
 //= require ckeditor/init
 //= require cable
 //= require custom

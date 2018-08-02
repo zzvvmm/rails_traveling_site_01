@@ -31,7 +31,7 @@
         <li class="blog_post_meta_item">
           <% if review.user.is_user? current_user %>
             <%= link_to t("delete"), review, method: :delete,
-              data: {confirm: t("users.user.content1")} %>
+              data: {confirm: t("confirm_delete")} %>
           <% end %>
         </li>
       </ul>
