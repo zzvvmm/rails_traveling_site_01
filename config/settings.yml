@@ -10,5 +10,6 @@ trip:
     maximum: 50
 paginate:
   per: 9
+  mess_per: 10
 hastags:
   top: 10

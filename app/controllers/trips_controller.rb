@@ -21,6 +21,7 @@ class TripsController < ApplicationController
     if @trip.save
       flash[:success] = t "create_success"
       @trip.members << @trip.owner
+      @chatroom = Chatroom.create topic: @trip.name, slug: @trip.id
       redirect_to @trip
     else
       flash[:danger] = t "create_fail"
@@ -29,6 +30,10 @@ class TripsController < ApplicationController
   end
 
   def show
+    @chatroom = Chatroom.find_by slug: @trip.id
+    @messages = @chatroom.messages.page(params[:page])
+      .per Settings.paginate.mess_per
+    @message = Message.new
     @user = User.find_by id: @trip.user_id
 
     return if @user
