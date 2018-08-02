@@ -2,6 +2,15 @@ class TripsController < ApplicationController
   before_action :logged_in_user
   before_action :find_trip, only: :show
 
+  def index
+    @trips = if params[:keyword]
+               Trip.search_trip(params[:keyword])
+                   .page(params[:page]).per_page
+             else
+               Trip.all.page(params[:page]).per_page
+             end
+  end
+
   def new
     @trip = Trip.new
     @places = Place.all

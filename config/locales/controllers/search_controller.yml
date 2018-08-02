@@ -1,0 +1,6 @@
+en:
+  danger:
+    find_user: "Can not find user"
+vi:
+  danger:
+    find_user: "Không tìm thấy tài khoản"

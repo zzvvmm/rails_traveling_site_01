@@ -1,0 +1,12 @@
+en:
+  send_request: "SEND REQUEST"
+  owner: "Owner: "
+  begin: "Begin: "
+  destination: "Destination: "
+  member: "Member: "
+vi:
+  send_request: "Gửi đăng ký"
+  owner: "Tạo bởi: "
+  begin: "Bắt đầu: "
+  destination: "Mục đích: "
+  member: "Thành viên: "

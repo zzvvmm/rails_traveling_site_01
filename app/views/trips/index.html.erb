@@ -1,0 +1,19 @@
+<div class="row" id="form-row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_tag trips_path, method: :get do %>
+
+      <%= label_tag :search, t("input_keyword") %>
+      <%= text_field_tag :keyword %>
+      <br>
+      <%= button_tag t("search"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div class="row" id="form-row">
+  <div class="container">
+    <% @trips.each do |trip| %>
+      <%= render trip %>
+    <% end %>
+    <%= paginate @trips, theme: "twitter-bootstrap-4" %>
+  </div>
+</div>
