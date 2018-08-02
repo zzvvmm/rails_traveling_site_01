@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :search, only: :index
     resources :participations, only: [:create, :destroy]
     mount ActionCable.server => "/cable"
+    mount Ckeditor::Engine => "/ckeditor"
   end
 end

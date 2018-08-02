@@ -1,0 +1,28 @@
+<% provide :title, t("reviews") %>
+
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog_post_container">
+          <%= render @reviews %>
+        </div>
+        <%= paginate @reviews, theme: "twitter-bootstrap-4" %>
+      </div>
+
+      <div class="col-lg-4 sidebar_col">
+        <div class="sidebar_categories">
+          <div class="sidebar_title"><%= t "tags" %></div>
+          <div class="sidebar_tags">
+            <ul>
+              <span><i class="fa fa-tag"></i> <%= link_to "homesta", "#" %>
+              </span>
+              <span><i class="fa fa-tag"></i> <%= link_to "resort", "#" %>
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
