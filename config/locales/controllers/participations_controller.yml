@@ -1,0 +1,16 @@
+en:
+  success:
+    add_member: "Add member success"
+  danger:
+    add_member: "Add member fail"
+    find_user: "Can not find user"
+    find_trip: "Can not find trip"
+    check_user:  "Just owner can add member"
+vi:
+  success:
+    add_member: "Thêm thành viên thành công"
+  danger:
+    add_member: "Thêm thành viên thất bại"
+    find_user: "Không tìm thấy user"
+    find_trip: "Không tìm thầy chuyến đi"
+    check_user:  "Chỉ có chủ nhóm được thêm thành viên"
