@@ -1,4 +1,8 @@
 en:
+  add_a_comment: "Add a comment"
+  add_comment: "Comment"
+  add_a_reply: "Add a reply"
+  reply: "Reply"
   date:
     abbr_day_names:
     - Sun

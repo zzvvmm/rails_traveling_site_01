@@ -13,6 +13,9 @@
         </div>
       </div>
     </div>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+    <% end %>
     <%= render "layouts/header" %>
     <%= yield %>
     <% if logged_in? %>
