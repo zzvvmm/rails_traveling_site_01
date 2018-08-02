@@ -1,12 +1,12 @@
 class CreateComments < ActiveRecord::Migration[5.2]
   def change
     create_table :comments do |t|
-      t.text :content
+      t.text :body
       t.integer :user_id
-      t.integer :review_id
-      t.integer :parent_id
+      t.integer :commentable_id
+      t.string :commentable_type
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

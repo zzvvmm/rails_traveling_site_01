@@ -11,6 +11,12 @@ Rails.application.routes.draw do
       resources :participations, only: [:create, :destroy]
       resources :searchs, only: :index
     end
+    resources :reviews do
+      resources :comments
+    end
+    resources :comments do
+      resources :comments
+    end
     get "/about", to: "static_pages#about"
     resources :chatrooms, param: :slug
     resources :messages

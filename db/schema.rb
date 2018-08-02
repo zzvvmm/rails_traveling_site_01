@@ -15,6 +15,15 @@ ActiveRecord::Schema.define(version: 2018_08_01_160126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "abcs", force: :cascade do |t|
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_abcs_on_commentable_type_and_commentable_id"
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "topic"
     t.string "slug"
@@ -35,10 +44,10 @@ ActiveRecord::Schema.define(version: 2018_08_01_160126) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "content"
+    t.text "body"
     t.integer "user_id"
-    t.integer "review_id"
-    t.integer "parent_id"
+    t.integer "commentable_id"
+    t.string "commentable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,7 +102,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_160126) do
 
   create_table "trips", force: :cascade do |t|
     t.string "name"
-    t.string "begin"
+    t.integer "begin_id"
     t.integer "destination_id"
     t.integer "user_id"
     t.text "plant"
