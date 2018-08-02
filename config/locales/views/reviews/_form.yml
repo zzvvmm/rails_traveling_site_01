@@ -1,0 +1,10 @@
+en:
+  review_title: "Title"
+  hashtags_seperate: "Hashtags seperate by comma(,)"
+  content: "Content"
+  button_text: Create
+vi:
+  review_title: "Tiêu đề"
+  hashtags_seperate: "Các hashtag cách nhau bởi dấu phẩy(,)"
+  content: "Nội dung"
+  button_text: "Tạo"

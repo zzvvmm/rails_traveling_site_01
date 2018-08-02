@@ -1,8 +1,11 @@
 <div class="field">
   <%= form_for @review do |f| %>
     <%= render "shared/error_messages", object: f.object %>
-    <%= f.label :title, t("title") %>
+    <%= f.label :title, t("review_title") %>
     <%= f.text_field :title, class: "form-control" %>
+    <br>
+    <%= f.text_field :hastags_list, placeholder: t("hashtags_seperate"),
+      class: "form-control" %>
     <br>
     <%= f.label :content, t("content") %>
     <%= f.cktext_area :content, class: "form-control" %>

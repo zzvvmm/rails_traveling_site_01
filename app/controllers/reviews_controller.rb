@@ -4,7 +4,9 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @reviews = Review.order_review.page(params[:page]).per Settings.paginate.per
+    @reviews = Review.order_by_time.page(params[:page])
+                     .per Settings.paginate.per
+    @top_hastags = Hastag.order_by_count
   end
 
   def new
@@ -43,7 +45,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit :title, :content
+    params.require(:review).permit :title, :content, :hastags_list
   end
 
   def correct_user
@@ -53,6 +55,7 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find_by id: params[:id]
+
     return if @review
     flash.now[:danger] = t "cant_find_review"
     redirect_to request.referrer || reviews_url

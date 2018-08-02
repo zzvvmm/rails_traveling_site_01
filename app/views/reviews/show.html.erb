@@ -98,16 +98,15 @@
         <div class="sidebar_categories">
           <div class="sidebar_title"><%= t "hashtags" %></div>
           <div class="sidebar_tags">
-            <ul>
-              <% if @review.hastags %>
-                <%= @review.hastags.each do |x| %>
-                  <span>
-                    <i class="fa fa-tag"></i>
-                    <%= link_to x.title, "#" %>
-                  </span>
-                <% end %>
-              <% end %>
-            </ul>
+            <% @review.hastags.each do |hastag| %>
+              <span>
+                <i class="fa fa-tag"></i>
+                <b>
+                  <%= link_to hastag.title,
+                    hastag_path(title: hastag.title) %>
+                </b>
+              </span>
+            <% end %>
           </div>
         </div>
       </div>
