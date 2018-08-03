@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_160126) do
+ActiveRecord::Schema.define(version: 2018_08_02_082041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_160126) do
 
   create_table "trips", force: :cascade do |t|
     t.string "name"
-    t.integer "begin_id"
+    t.string "begin"
     t.integer "destination_id"
     t.integer "user_id"
     t.text "plant"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_160126) do
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "messages", "chatrooms"

@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  include PgSearch
+
   attr_writer :hastags_list
 
   belongs_to :user, required: true
@@ -13,6 +15,9 @@ class Review < ApplicationRecord
   after_save :make_hastags
 
   scope :order_by_time, ->{order created_at: :desc}
+
+  pg_search_scope :search_review, against: [:title],
+    using: {tsearch: {any_word: true}}
 
   def hastags_list
     @hastags_list || hastags.map(&:name).join(", ")
