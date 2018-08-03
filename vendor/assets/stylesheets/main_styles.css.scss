@@ -118,7 +118,15 @@ p a:hover::after {
   opacity: 0.2;
 }
 
-::selection {}
+::-moz-selection { /* Code for Firefox */
+  color: #fff;
+  background: #000;
+}
+
+::selection {
+  color: #fff;
+  background: #000000;
+}
 
 p::selection {}
 
@@ -756,8 +764,8 @@ section {
 
 .home_content {
   position: absolute;
-  bottom: 106px;
-  left: 50%;
+  bottom: 50px;
+  left: 35%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);

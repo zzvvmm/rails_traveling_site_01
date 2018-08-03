@@ -4,8 +4,16 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @reviews = Review.order_by_time.page(params[:page])
-                     .per Settings.paginate.per
+    @reviews = if params[:keyword]
+                 Review.search_review(params[:keyword]).order_by_time
+                       .page(params[:page]).per Settings.paginate.per
+               elsif params[:field] == "my_reviews"
+                 current_user.reviews.page(params[:page])
+                             .per Settings.paginate.per
+               else
+                 Review.order_by_time.page(params[:page])
+                       .per Settings.paginate.per
+               end
     @top_hastags = Hastag.order_by_count
   end
 
@@ -49,7 +57,11 @@ class ReviewsController < ApplicationController
   end
 
   def correct_user
-    @review = current_user.reviews.find_by id: params[:id]
+    if current_user.admin?
+      find_review
+    else
+      @review = current_user.reviews.find_by id: params[:id]
+    end
     redirect_to reviews_url if @review.nil?
   end
 
