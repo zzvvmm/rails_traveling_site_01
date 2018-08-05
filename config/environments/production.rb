@@ -89,6 +89,22 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_mailer.smtp_settings = {
+   :address => "smtp.gmail.com",
+   :port => 587,
+   :user_name => ENV["mail_username"],
+   :password => ENV["mail_password"],
+   :authentication => "plain",
+   :enable_starttls_auto => true,
+   :openssl_verify_mode  => "none"
+  }
+
+  host = "dua-nhau-di-tron.herokuapp.com"
+  config.action_mailer.default_url_options = { host: host, protocol: "https"  }
+  config.action_mailer.perform_caching = false
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.web_socket_server_url = "wss://dua-nhau-di-tron.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://dua-nhau-di-tron.herokuapp.com', 'http://dua-nhau-di-tron.herokuapp.com']
 end

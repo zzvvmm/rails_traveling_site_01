@@ -29,9 +29,11 @@
           <%= pluralize review.comments.count, t("comment") %>
         </li>
         <li class="blog_post_meta_item">
-          <% if review.user.is_user?(current_user) || current_user.admin? %>
-            <%= link_to t("delete"), review, method: :delete,
-              data: {confirm: t("confirm_delete")} %>
+          <% if logged_in? %>
+            <% if review.user.is_user?(current_user) || current_user.admin? %>
+              <%= link_to t("delete"), review, method: :delete,
+                data: {confirm: t("confirm_delete")} %>
+            <% end %>
           <% end %>
         </li>
       </ul>
@@ -45,3 +47,6 @@
     </div>
   </div>
 </div>
+<br>
+_________________________________________________________________________________
+<br>
