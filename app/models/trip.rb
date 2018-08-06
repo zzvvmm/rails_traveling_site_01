@@ -10,6 +10,8 @@ class Trip < ApplicationRecord
   has_many :members, through: :participations,
     class_name: User.name, source: :user
   has_many :notifications
+  has_many :plants
+  has_many :places, through: :plants
 
   scope :per_page, ->{per Settings.paginate.per}
 

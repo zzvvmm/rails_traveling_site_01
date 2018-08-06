@@ -5,7 +5,6 @@ class CreateTrips < ActiveRecord::Migration[5.2]
       t.string :begin
       t.integer :destination_id
       t.integer :user_id
-      t.text :plant
       t.text :expense
 
       t.timestamps

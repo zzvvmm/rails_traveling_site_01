@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
 
   def index
     if params[:user_id]
-      @participations = @user.participations.select_request
+      @participations = current_user.participations.select_request
         .page(params[:page]).per Settings.paginate.per_page
     elsif params[:accepted] == "send_request"
       @participations = @trip.participations.select_request
@@ -120,8 +120,6 @@ class ParticipationsController < ApplicationController
   def check_index
     if params[:user_id]
       find_user
-
-      return if current_user.is_user? @user
     else
       find_trip
     end

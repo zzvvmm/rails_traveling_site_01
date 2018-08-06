@@ -11,6 +11,8 @@ vi:
   add_a_reply: "Trả lời bình luận"
   open_chat: "Mở hộp thoại"
   load_more: "Xem thêm"
+  origin_location: "Địa điểm xuất phát"
+  destination_location: "Địa điểm đích"
   date:
     abbr_day_names:
     - CN

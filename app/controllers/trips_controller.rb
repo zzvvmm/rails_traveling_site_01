@@ -42,24 +42,23 @@ class TripsController < ApplicationController
     end
     @chatroom = Chatroom.find_by slug: @trip.id
     if @chatroom
-      @messages = @chatroom.messages.last 5
+      @messages = @chatroom.messages.last 10
       @message = Message.new
     end
     @user = @trip.owner
+    @plants = @trip.plants
+    @places = @trip.places
+    respond_to do |format|
+      format.html
+      format.js {}
+      format.json { render json: @plants }
+    end
   end
-<<<<<<< HEAD
 
   def edit
     @field = params[:field]
   end
 
-=======
-
-  def edit
-    @field = params[:field]
-  end
-
->>>>>>> bcf4d1e... demo
   def update
     if params[:trip][:field] == "plant"
       @trip.update_attributes(plant: params[:trip][:plant])
@@ -111,21 +110,14 @@ class TripsController < ApplicationController
   end
 
   def check_owner
-<<<<<<< HEAD
-    return if current_user == @trip.owner
-    flash[:danger] = "You not owner"
-    redirect_to root_url
-  end
-
-=======
 
      return if current_user == @trip.owner
      flash[:danger] = "You not owner"
      redirect_to root_url
-   end
->>>>>>> bcf4d1e... demo
+  end
+
   def check_member
-    @participation = Participation.find_by user_id: current_user.id
+    @participation = @trip.participations.find_by user_id: current_user.id
 
     return if @participation&.join_in?
     flash[:danger] = "You not member"
