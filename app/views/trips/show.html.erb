@@ -1,4 +1,6 @@
+
 <%= provide :title, @content %>
+
 <% if @content == "plant" %>
   <div id="content-sidebar">
     <%= @trip.plant %>
@@ -17,6 +19,5 @@
   </div>
 <% end %>
 
-<% if @chatroom %>
-  <%= render "chat" %>
-<% end %>
+
+<footer>

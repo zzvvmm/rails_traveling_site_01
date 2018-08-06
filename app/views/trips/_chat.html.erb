@@ -23,9 +23,11 @@
 
   <div class="popup-messages" id="scroll">
     <div class="direct-chat-messages">
-      <button id="load-more" class="btn">
-        <%= t "load_more" %>
-      </button>
+      <% if @chatroom.messages.all.length > 10 %>
+        <button id="load-more" class="btn">
+          <%= t "load_more" %>
+        </button>
+      <% end %>
       <% if @messages.any? %>
         <div class="card-body" id="messages">
           <%= render partial: "messages/message", collection: @messages %>
