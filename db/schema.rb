@@ -10,15 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_08_02_115844) do
-=======
-=======
->>>>>>> bcf4d1e... demo
-ActiveRecord::Schema.define(version: 2018_08_05_175405) do
+ActiveRecord::Schema.define(version: 2018_08_12_155112) do
 
->>>>>>> 9160c9836cd88a0d3bfbc4f25c43614e0c12c754
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,10 +81,20 @@ ActiveRecord::Schema.define(version: 2018_08_05_175405) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
+    t.string "adress"
     t.text "description"
+    t.float "lat"
+    t.float "lng"
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "trip_id"
+    t.integer "place_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -107,7 +110,6 @@ ActiveRecord::Schema.define(version: 2018_08_05_175405) do
     t.string "begin"
     t.integer "destination_id"
     t.integer "user_id"
-    t.text "plant"
     t.text "expense"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

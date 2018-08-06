@@ -18,6 +18,8 @@
       <%= content_tag :div, message,
         class: "alert alert-#{message_type}" %>
     <% end %>
+    <input class="hidden-data" id="origin" value="<%= @trip.begin %>"></input>
+    <input class="hidden-data" id="destination" value="<%= @trip.place.name %>"></input>
     <div class="wrapper">
       <!-- Sidebar -->
       <nav id="sidebar">
@@ -83,13 +85,16 @@
           <span></span>
           <span></span>
         </button>
-        <div id="content-sidebar">
-          <%= yield %>
-        </div>
+
+        <%= yield %>
+
       </div>
 
     </div>
+
+    <% if @chatroom %>
+      <%= render "chat" %>
+    <% end %>
     <%= render "layouts/footer" %>
-    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

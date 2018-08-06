@@ -12,19 +12,13 @@
     <% if participation.send_request? %>
       <div class="col-md-5" id="send_request_button">
         <%= button_to "ACCEPT", trip_participation_path(id: participation.id,
-<<<<<<< HEAD
-          accepted: :send_request), method: :patch,
+          accepted: :send_request, trip_id: participation.trip.id),
+          method: :patch,
           data: {confirm: t("confirm_delete")}, class: "btn btn-primary" %>
         <br>
         <%= button_to "REJECT", trip_participation_path(id: participation.id,
-          accepted: :send_request), method: :delete,
-=======
-          accepted: :send_request, trip_id: @trip.id), method: :patch,
-          data: {confirm: t("confirm_delete")}, class: "btn btn-primary" %>
-        <br>
-        <%= button_to "REJECT", trip_participation_path(id: participation.id,
-          accepted: :send_request, trip_id: @trip.id), method: :delete,
->>>>>>> bcf4d1e... demo
+          accepted: :send_request, trip_id: participation.trip.id),
+          method: :delete,
           data: {confirm: t("confirm_delete")}, class: "btn btn-primary" %>
       </div>
     <% elsif participation.join_in? %>

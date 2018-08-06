@@ -3,6 +3,17 @@ en:
   add_comment: "Comment"
   add_a_reply: "Add a reply"
   reply: "Reply"
+  origin_location: "Origin Location"
+  destination_location: "Destination Location"
+  create_plant: "Create Plant"
+  plant_place: "Place"
+  plant_description: "Plant Desription"
+  plant_location: "Plant Location"
+  delete_success: "Delete sucess"
+  delete_fail: "Delete fail"
+  at: " at "
+  canceled: " !!! CANCELED !!!"
+  plant_note: "PLANT: "
   date:
     abbr_day_names:
     - Sun
